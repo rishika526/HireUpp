@@ -1,5 +1,7 @@
 # HireUpp — AI-Powered Recruitment & Career Intelligence Platform
 
+Live site- https://hireupp.onrender.com/
+
 **HireUpp** is an all-in-one intelligent recruitment and career preparation ecosystem built with modern technologies:
 - **Frontend**: React 19, TypeScript, Vite, Tailwind CSS v4, Lucide Icons, Framer Motion
 - **Backend**: Python 3.10+, FastAPI, Uvicorn, Pydantic v2, PyPDF
