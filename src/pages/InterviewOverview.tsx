@@ -62,10 +62,10 @@ export const InterviewOverview: React.FC = () => {
             <span>AI Mock Interview Simulator</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Multimodal Interview Preparation
+            Interactive AI Mock Interview
           </h1>
           <p className="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
-            Simulate realistic video interviews with our real-time AI evaluator. Receive instant telemetry on technical depth, speech pacing, eye contact, and confidence markers.
+            Simulate realistic technical and HR interviews with speech-to-text voice answers, text-to-speech audio readout, optional local camera mirror, and transparent rubric evaluation reports.
           </p>
         </div>
 
@@ -161,9 +161,9 @@ export const InterviewOverview: React.FC = () => {
 
         {/* Media & Vision Device Readiness */}
         <div className="lg:col-span-6 rounded-3xl glass-panel p-6 sm:p-7 border border-white/10 space-y-4">
-          <h2 className="text-lg font-bold text-white">3. Sensor & Telemetry Readiness</h2>
+          <h2 className="text-lg font-bold text-white">3. Browser Speech & Camera Readiness</h2>
           <p className="text-xs text-slate-400">
-            HireUpp analyzes your visual presence and audio waveforms in real-time.
+            HireUpp integrates the browser's Web Speech API for voice recognition and local camera preview.
           </p>
 
           <div className="grid grid-cols-2 gap-3 pt-2">
@@ -177,7 +177,7 @@ export const InterviewOverview: React.FC = () => {
             >
               <div className="flex items-center gap-2.5 text-xs font-bold">
                 <Camera className="w-4 h-4 text-blue-400" />
-                <span>Webcam Telemetry</span>
+                <span>Webcam Mirror</span>
               </div>
               <span className={`text-[10px] font-mono px-2 py-0.5 rounded ${cameraEnabled ? 'bg-emerald-500/20 text-emerald-400' : 'bg-slate-800 text-slate-500'}`}>
                 {cameraEnabled ? 'Ready' : 'Off'}
@@ -194,7 +194,7 @@ export const InterviewOverview: React.FC = () => {
             >
               <div className="flex items-center gap-2.5 text-xs font-bold">
                 <Mic className="w-4 h-4 text-blue-400" />
-                <span>Audio Stream</span>
+                <span>Speech to Text</span>
               </div>
               <span className={`text-[10px] font-mono px-2 py-0.5 rounded ${micEnabled ? 'bg-emerald-500/20 text-emerald-400' : 'bg-slate-800 text-slate-500'}`}>
                 {micEnabled ? 'Ready' : 'Off'}
@@ -204,7 +204,10 @@ export const InterviewOverview: React.FC = () => {
 
           <div className="pt-2">
             <button
-              onClick={() => navigate('/interview/mock')}
+              onClick={() => {
+                const diffParam = selectedDifficulty === 'FAANG-Caliber' ? 'Hard' : selectedDifficulty === 'Standard' ? 'Easy' : 'Medium';
+                navigate(`/interview/mock?type=${selectedCategory}&difficulty=${diffParam}`);
+              }}
               className="w-full py-3.5 rounded-xl text-xs font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-xl shadow-blue-500/25 flex items-center justify-center gap-2 transition-all"
             >
               <Play className="w-4 h-4 fill-white" />

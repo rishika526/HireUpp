@@ -71,6 +71,20 @@ export const ResumeAnalyzer: React.FC = () => {
 
       const result = await analyzeResumeApi(fileToAnalyze, jobDescription);
       setAnalysisResult(result);
+      try {
+        localStorage.setItem(
+          'hireupp_latest_resume_analysis',
+          JSON.stringify({
+            ...result,
+            fileName: fileToAnalyze.name,
+            analyzedAt: new Date().toLocaleDateString('en-US', {
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric',
+            }),
+          })
+        );
+      } catch {}
       setBackendStatus('online');
     } catch (err: any) {
       setErrorMessage(err.message || 'Failed to analyze resume. Please ensure the backend is running.');

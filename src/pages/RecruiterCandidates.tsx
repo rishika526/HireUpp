@@ -148,13 +148,13 @@ export const RecruiterCandidates: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-3">
             <Users className="w-3.5 h-3.5" />
-            <span>Talent Acquisition Engine</span>
+            <span>Talent Acquisition Engine • Demo Environment</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Candidate Search & Talent Pool
           </h1>
           <p className="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
-            Semantic vector search matching active requisitions against verified candidate telemetry and quantifiable ATS benchmarks.
+            Evaluate pre-screened engineering candidates matching active requisitions, with ATS benchmarks and verified skills breakdown.
           </p>
         </div>
 
@@ -172,6 +172,14 @@ export const RecruiterCandidates: React.FC = () => {
             <span>Shortlisted ({shortlistedIds.length})</span>
           </button>
         </div>
+      </div>
+
+      {/* Demo Notice Banner */}
+      <div className="p-3.5 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-xs text-slate-300 flex items-center gap-2.5">
+        <Sparkles className="w-4 h-4 text-purple-400 flex-shrink-0" />
+        <span>
+          <strong className="text-white">Demo Talent Pool:</strong> Candidate profiles and match percentages are sample demo records for evaluation walkthroughs.
+        </span>
       </div>
 
       {/* Filter and Search Bar */}
